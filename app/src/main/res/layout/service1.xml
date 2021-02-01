@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".service1">
+
+    <TableLayout
+        android:id="@+id/tblayout1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="90dp"
+        >
+        <Button
+            android:id="@+id/start_service"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="启动service"
+            android:background="#8ADCAF"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            ></Button>
+        <Button
+            android:id="@+id/stop_service"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="停止service"
+            android:background="#8ADCAF"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            ></Button>
+        <Button
+            android:id="@+id/start_intentservice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="启动intentService"
+            android:background="#8ADCAF"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            ></Button>
+        <Button
+            android:id="@+id/send_broadcast"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="发送广播"
+            android:background="#8ADCAF"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            ></Button>
+
+        <Button
+            android:id="@+id/reg_broadcast"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="动态注册广播"
+            android:background="#8ADCAF"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            ></Button>
+
+    </TableLayout>
+
+
+</android.support.constraint.ConstraintLayout>

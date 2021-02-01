@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    //代表的目录即为：Environment.getExternalStorageDirectory()/sssstar
+    <external-path name="sssstar" path="sssstar" />
+    //代表的目录即为：Environment.getExternalStorageDirectory()
+    <external-path name="external" path="." />
+    //代表的目录即为：Environment.getExternalStorageDirectory()/Android/data/包名
+    <external-path name="external_privacy" path="Android/data/com.sssstar.magic" />
+    //代表的目录即为：context.getExternalFilesDirs()
+    <external-files-path name="external_file" path="." />
+    //代表的目录即为：context.getExternalFilesDirs()/sssstar
+    <external-files-path name="external_file_s" path="sssstar" />
+    //代表的目录即为：getExternalCacheDirs()
+    <external-cache-path name="external_cache" path="." />
+    //代表的目录即为：Context.getFilesDir()
+    <files-path name="file" path="."/>
+    //代表的目录即为：getCacheDir()
+    <cache-path name="cache" path="."/>
+</paths>
