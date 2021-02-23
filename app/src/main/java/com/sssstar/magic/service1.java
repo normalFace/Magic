@@ -15,7 +15,7 @@ public class service1 extends AppCompatActivity {
     MyReceiver myReceiver;
     private String TAG= "service1";
     private LocalBroadcastManager localBroadcastManager;
-    OutLoginReceiver outLoginReceiver;
+//    OutLoginReceiver outLoginReceiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +26,9 @@ public class service1 extends AppCompatActivity {
         start_intentService = (Button) findViewById(R.id.start_intentservice);
         send_broadcast = (Button) findViewById(R.id.send_broadcast);
         reg_broadcast = (Button) findViewById(R.id.reg_broadcast);
+
+        Intent intent_getextras = getIntent();
+        Log.i(TAG,intent_getextras.getExtras().toString());
 
         activityManager.addActivity(this);
 
@@ -102,7 +105,7 @@ public class service1 extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         unregisterReceiver(myReceiver);
-        localBroadcastManager.unregisterReceiver(outLoginReceiver);
+//        localBroadcastManager.unregisterReceiver(outLoginReceiver);
         activityManager.removeActivity(this);
     }
 }

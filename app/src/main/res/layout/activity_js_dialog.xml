@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".JsDialog">
+
+    <TableLayout
+        android:id="@+id/tblayout1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="90dp"
+        >
+        <TextView
+            android:id="@+id/tv_prompt"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="这是初始的文案"
+            android:background="#8ADCAF"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            ></TextView>
+        <EditText
+            android:id="@+id/et_prompt"
+            android:layout_width="wrap_content"
+            android:layout_height="300dp"
+            android:layout_marginTop="5dp"
+            android:text="与JS交互"
+            android:background="#8ADCAF"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            ></EditText>
+
+
+
+
+    </TableLayout>
+
+</android.support.constraint.ConstraintLayout>

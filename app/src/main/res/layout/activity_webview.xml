@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".webviewActivity">
+
+    <TableLayout
+        android:id="@+id/tblayout1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="90dp"
+        >
+        <Button
+            android:id="@+id/load_by_url"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="根据url加载网页"
+            android:background="#8ADCAF"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            ></Button>
+        <Button
+            android:id="@+id/js_interface"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="与JS交互"
+            android:background="#8ADCAF"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            ></Button>
+        <Button
+            android:id="@+id/js_dialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="JS对话框"
+            android:background="#8ADCAF"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            ></Button>
+
+
+
+
+    </TableLayout>
+
+</android.support.constraint.ConstraintLayout>

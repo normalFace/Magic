@@ -4,10 +4,8 @@ package com.sssstar.magic;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.database.Cursor;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Environment;
-import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v4.content.FileProvider;
@@ -16,17 +14,16 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.Calendar;
 
 public class activity1 extends AppCompatActivity {
     private TextView lgname;
-    private Button btn_tkphoto,btn_listview1,btn_call,btn_bd,fileOperation,getSMS,login_page,service_page;
+    private Button btn_tkphoto,btn_listview1,btn_call,btn_bd,fileOperation,getSMS,login_page;
+    private Button service_page,btn_webview,btn_okhttp;
     private static int REQUEST_CAMERA= 1;
     private static int CREATE_FILE= 2;
     fileManager fileManager = new fileManager(activity1.this);
@@ -37,7 +34,7 @@ public class activity1 extends AppCompatActivity {
         setContentView(R.layout.activity1);
         lgname = (TextView) findViewById(R.id.lgname);
         Intent itt = getIntent();
-        lgname.setText("尊贵的VIP"+itt.getStringExtra("actname"));
+        lgname.setText("尊贵的VIP "+itt.getStringExtra("actname"));
         btn_listview1 = (Button) findViewById(R.id.btn_listview1);
         btn_call = (Button) findViewById(R.id.btn_call);
         btn_bd = (Button) findViewById(R.id.btn_browser);
@@ -46,8 +43,26 @@ public class activity1 extends AppCompatActivity {
         getSMS = (Button) findViewById(R.id.btn_getSMS);
         login_page = (Button) findViewById(R.id.login_page);
         service_page = (Button) findViewById(R.id.service_page);
+        btn_webview = (Button) findViewById(R.id.btn_webview);
+        btn_okhttp = (Button) findViewById(R.id.btn_okhttp);
 
         activityManager.addActivity(this);
+
+        btn_okhttp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(activity1.this, okhttpActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btn_webview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent_httpclient = new Intent(activity1.this, webviewActivity.class);
+                startActivity(intent_httpclient);
+            }
+        });
 
         getSMS.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -149,7 +164,13 @@ public class activity1 extends AppCompatActivity {
         btn_listview1 .setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent_open = new Intent("com.sssstar.toolman.MAINACTIVITY2",
+                        Uri.parse("sssstar://toolman:8888/eeee?token=zzzz&id=2021"));
+                Bundle bundle = new Bundle();
+                bundle.putString("key1","hahahaha");
+                bundle.putString("key1","????????");
+                intent_open.putExtras(bundle);
+                startActivity(intent_open);
             }
         });
 
@@ -165,6 +186,12 @@ public class activity1 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(activity1.this,service1.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("key1","hahahaha");
+                bundle.putString("key1","????????");
+                intent.putExtras(bundle);
+                intent.putExtra("key3",true);
+                intent.putExtra("key4",2021);
                 startActivity(intent);
             }
         });

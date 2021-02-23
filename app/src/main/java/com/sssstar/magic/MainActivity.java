@@ -1,7 +1,11 @@
 package com.sssstar.magic;
 
+import android.content.ContentResolver;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,7 +13,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
@@ -18,6 +26,12 @@ public class MainActivity extends AppCompatActivity {
     private spGo spgo;
     private Context mcontext;
     private TextView showText;
+    private Cursor cursor;
+    private String TAG="MainActivity";
+    private ContentResolver contentResolver;
+    private ContentValues values;
+    private Uri uri;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
         mcontext = getApplicationContext();
         spgo = new spGo(mcontext);
         showText = (TextView) findViewById(R.id.showText);
+
+        uri = Uri.parse("content://com.sssstar.magic.LoginContentProvider/path");
+        contentResolver = mcontext.getContentResolver();
 
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,6 +74,14 @@ public class MainActivity extends AppCompatActivity {
                 String password = pwd.getText().toString();
                 //Log.i("main",phone+","+password);
                 spgo.save(phone,password);
+                if(!phone.equals("") && !password.equals("")){
+                    values = new ContentValues();
+                    values.put("account",phone);
+                    values.put("pwd",password);
+                    contentResolver.insert(uri,values);
+                }else {
+                    Toast.makeText(mcontext,"注册信息不能为空",Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
@@ -66,8 +91,26 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Map<String,String> data = spgo.read();
                 //Log.i("main",data.toString());
-                showText.setText(data.get("actname")+":"+data.get("pwd"));
+//                showText.setText(data.get("actname")+":"+data.get("pwd"));
 
+                cursor = contentResolver.query(uri,null,null,null,null);
+                HashMap<Integer,String> account_map = new HashMap<>();
+                String info = new String();
+                if(cursor.getCount()>0){
+                    while(cursor.moveToNext()){
+                        int id = cursor.getInt(0);
+                        String account = cursor.getString(1);
+                        String pwd = cursor.getString(2);
+                        info = account+":"+pwd;
+                        Log.i(TAG,info);
+                        account_map.put(id, info);
+                        Log.i(TAG,account_map.toString());
+                    }
+                    showText.setText(account_map.toString());
+
+                }else{
+                    Log.i(TAG,"cursor.getCount()==0");
+                }
             }
         });
 
